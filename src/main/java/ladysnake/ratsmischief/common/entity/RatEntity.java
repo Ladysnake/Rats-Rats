@@ -41,6 +41,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.entity.mob.EvokerFangsEntity;
 import net.minecraft.entity.mob.GhastEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
@@ -605,6 +606,15 @@ public class RatEntity extends TameableEntity implements IAnimatable, Angerable 
         }
 
         return false;
+    }
+
+    @Override
+    public boolean canTarget(LivingEntity target) {
+        if (target instanceof RatEntity && ((RatEntity) target).isTamed() && ((RatEntity) target).getOwner() != null && ((RatEntity) target).getOwner() == this.getOwner()) {
+            return false;
+        } else {
+            return super.canTarget(target);
+        }
     }
 
     public enum Type {

@@ -1,0 +1,6 @@
+{
+  "type": "origins:toggle",
+  "name": "ratsmischief.wererat.power.crawl",
+  "description": "ratsmischief.wererat.power.crawl.description",
+  "start_value": 0
+}
